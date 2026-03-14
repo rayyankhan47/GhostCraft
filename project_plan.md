@@ -455,8 +455,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 7 — Mineflayer Bot Runtime
 
 ### 7.1 Build the Bot Factory
-- [ ] **7.1.1** Create `src/minecraft/botFactory.ts` — exports `createBot(username: string): Promise<Bot>`
-- [ ] **7.1.2** Bot creation options:
+- [x] **7.1.1** Create `src/minecraft/botFactory.ts` — exports `createBot(username: string): Promise<Bot>`
+- [x] **7.1.2** Bot creation options:
   ```typescript
   const bot = mineflayer.createBot({
     host: env.MC_SERVER_HOST,
@@ -467,17 +467,17 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   });
   bot.loadPlugin(pathfinder);
   ```
-- [ ] **7.1.3** Return a Promise that resolves on the `spawn` event with a 30-second timeout that rejects if the bot never appears in the world
-- [ ] **7.1.4** Attach `error` and `kicked` event listeners that log the reason and update the agent's status to `'error'` in the registry
+- [x] **7.1.3** Return a Promise that resolves on the `spawn` event with a 30-second timeout that rejects if the bot never appears in the world
+- [x] **7.1.4** Attach `error` and `kicked` event listeners that log the reason and update the agent's status to `'error'` in the registry
 
 ### 7.2 Build the Bot Controller
-- [ ] **7.2.1** Create `src/minecraft/botController.ts` — an in-memory `Map<string, Bot>` of live bot instances with:
+- [x] **7.2.1** Create `src/minecraft/botController.ts` — an in-memory `Map<string, Bot>` of live bot instances with:
   - `registerBot(agentId: string, bot: Bot): void`
   - `getBot(agentId: string): Bot | undefined`
   - `removeBot(agentId: string): void`
   - `getBotState(agentId: string): { location, inventory } | null` — reads directly from the live bot object
-- [ ] **7.2.2** `getBotState` reads `bot.entity.position` and `bot.inventory.items()` — the embed updater calls this every tick to get fresh data
-- [ ] **7.2.3** The embed updater loop should call `getBotState` on each tick and push the fresh data into `AgentState` via `updateAgent` before building the embed
+- [x] **7.2.2** `getBotState` reads `bot.entity.position` and `bot.inventory.items()` — the embed updater calls this every tick to get fresh data
+- [x] **7.2.3** The embed updater loop should call `getBotState` on each tick and push the fresh data into `AgentState` via `updateAgent` before building the embed
 
 ### 7.3 Write a standalone bot connection test
 - [ ] **7.3.1** Create `scripts/test-bot.ts` — spawns `GC_Test`, logs its position every 5 seconds for 15 seconds, then disconnects
