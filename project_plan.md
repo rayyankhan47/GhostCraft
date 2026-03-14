@@ -408,26 +408,26 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   - `/status` — no options
   - `/dismiss` — option: `agent` (string, required)
 - [x] **6.3.2** Create `scripts/register-commands.ts` — a one-off script that calls this function
-- [ ] **6.3.3** Run it: `npx ts-node scripts/register-commands.ts`
-- [ ] **6.3.4** Open Discord, type `/` in `#ghostcraft-main` — confirm all four GhostCraft commands appear in the autocomplete
+- [x] **6.3.3** Run it: `npx ts-node scripts/register-commands.ts`
+- [x] **6.3.4** Open Discord, type `/` in `#ghostcraft-main` — confirm all four GhostCraft commands appear in the autocomplete
 
 ### 6.4 Build the Thread Manager
-- [ ] **6.4.1** Create `src/discord/threadManager.ts` with:
+- [x] **6.4.1** Create `src/discord/threadManager.ts` with:
   - `createAgentThread(role: AgentRole, client: Client): Promise<{ threadId: string }>`
   - `archiveThread(threadId: string, client: Client): Promise<void>`
   - `postToThread(threadId: string, content: string, client: Client): Promise<void>`
-- [ ] **6.4.2** `createAgentThread` fetches `#ghostcraft-main` by ID and calls `channel.threads.create({ name: '{emoji} {RoleName} — Active', autoArchiveDuration: 60 })`
-- [ ] **6.4.3** Test it: write `scripts/test-thread.ts` that creates a test thread and immediately archives it — confirm you see it appear and disappear in Discord
+- [x] **6.4.2** `createAgentThread` fetches `#ghostcraft-main` by ID and calls `channel.threads.create({ name: '{emoji} {RoleName} — Active', autoArchiveDuration: 60 })`
+- [x] **6.4.3** Test it: write `scripts/test-thread.ts` that creates a test thread and immediately archives it — confirm you see it appear and disappear in Discord
 
 ### 6.5 Build the Embed Builder
-- [ ] **6.5.1** Create `src/discord/embedBuilder.ts` — each function returns a `discord.js` `EmbedBuilder`:
+- [x] **6.5.1** Create `src/discord/embedBuilder.ts` — each function returns a `discord.js` `EmbedBuilder`:
   - `buildIdleEmbed(state: AgentState): EmbedBuilder`
   - `buildWorkingEmbed(state: AgentState): EmbedBuilder`
   - `buildCompleteEmbed(state: AgentState): EmbedBuilder`
   - `buildErrorEmbed(state: AgentState, errorMsg: string): EmbedBuilder`
   - `buildCommanderPlanningEmbed(goal: string): EmbedBuilder`
   - `buildCommanderActiveEmbed(state: CommanderState): EmbedBuilder`
-- [ ] **6.5.2** The status card body for agent embeds should look like this (use a code block field for monospace):
+- [x] **6.5.2** The status card body for agent embeds should look like this (use a code block field for monospace):
   ```
   ━━━━━━━━━━━━━━━━━━━━━━━━
   Task:      {currentTask}
@@ -438,8 +438,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   ━━━━━━━━━━━━━━━━━━━━━━━━
   Last update: just now
   ```
-- [ ] **6.5.3** Use `setColor(ROLE_COLORS[role])` on each embed
-- [ ] **6.5.4** The Commander embeds use `ROLE_COLORS.commander` (gold) and show the plan list as bullet points
+- [x] **6.5.3** Use `setColor(ROLE_COLORS[role])` on each embed
+- [x] **6.5.4** The Commander embeds use `ROLE_COLORS.commander` (gold) and show the plan list as bullet points
 
 ### 6.6 Build the Embed Updater
 - [ ] **6.6.1** Create `src/discord/embedUpdater.ts` with:
