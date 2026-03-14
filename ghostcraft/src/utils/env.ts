@@ -18,9 +18,9 @@ export const env = {
   DISCORD_CLIENT_ID:       requireEnv('DISCORD_CLIENT_ID'),
   DISCORD_MAIN_CHANNEL_ID: requireEnv('DISCORD_MAIN_CHANNEL_ID'),
 
-  // Botpress
-  BOTPRESS_BOT_ID:  requireEnv('BOTPRESS_BOT_ID'),
-  BOTPRESS_TOKEN:   requireEnv('BOTPRESS_TOKEN'),
+  // Botpress — validated lazily in bpClient.ts when Commander is invoked
+  BOTPRESS_BOT_ID:  optionalEnv('BOTPRESS_BOT_ID', ''),
+  BOTPRESS_TOKEN:   optionalEnv('BOTPRESS_TOKEN', ''),
 
   // Minecraft
   MC_SERVER_HOST: optionalEnv('MC_SERVER_HOST', 'localhost'),
@@ -28,6 +28,6 @@ export const env = {
   RCON_PASSWORD:  optionalEnv('RCON_PASSWORD', 'ghostcraft123'),
   RCON_PORT:      parseInt(optionalEnv('RCON_PORT', '25575'), 10),
 
-  // LLM
-  ANTHROPIC_API_KEY: requireEnv('ANTHROPIC_API_KEY'),
+  // LLM — validated lazily in llmClient.ts when personality messages fire
+  ANTHROPIC_API_KEY: optionalEnv('ANTHROPIC_API_KEY', ''),
 };
