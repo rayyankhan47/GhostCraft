@@ -442,13 +442,13 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [x] **6.5.4** The Commander embeds use `ROLE_COLORS.commander` (gold) and show the plan list as bullet points
 
 ### 6.6 Build the Embed Updater
-- [ ] **6.6.1** Create `src/discord/embedUpdater.ts` with:
+- [x] **6.6.1** Create `src/discord/embedUpdater.ts` with:
   - `startUpdateLoop(agentId: string, client: Client): void`
   - `stopUpdateLoop(agentId: string): void`
-- [ ] **6.6.2** Maintain a `Map<string, NodeJS.Timeout>` internally for active intervals
-- [ ] **6.6.3** Each loop tick: get latest `AgentState` from registry → fetch the status message → build the right embed based on `state.status` → `message.edit({ embeds: [embed] })`
-- [ ] **6.6.4** Wrap the entire tick in try/catch — a failed edit must never crash the bot
-- [ ] **6.6.5** `stopUpdateLoop` clears the interval and removes it from the map
+- [x] **6.6.2** Maintain a `Map<string, NodeJS.Timeout>` internally for active intervals
+- [x] **6.6.3** Each loop tick: get latest `AgentState` from registry → fetch the status message → build the right embed based on `state.status` → `message.edit({ embeds: [embed] })`
+- [x] **6.6.4** Wrap the entire tick in try/catch — a failed edit must never crash the bot
+- [x] **6.6.5** `stopUpdateLoop` clears the interval and removes it from the map
 
 ---
 
