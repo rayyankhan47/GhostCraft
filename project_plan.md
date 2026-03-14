@@ -544,7 +544,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 > This is where Botpress does its job. Instead of calling Claude directly with a hardcoded prompt, you send the user's goal to your Botpress agent (configured in Step 2) and it returns the structured JSON plan. Botpress manages the LLM, the conversation context, and the response.
 
 ### 9.1 Build the Botpress Client wrapper
-- [ ] **9.1.1** Create `src/botpress/bpClient.ts` — wraps `@botpress/client` to send messages to your Commander bot and get responses:
+- [x] **9.1.1** Create `src/botpress/bpClient.ts` — wraps `@botpress/client` to send messages to your Commander bot and get responses:
   ```typescript
   import { Client } from '@botpress/client';
   import { env } from '../utils/env';
@@ -573,19 +573,19 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
     return await waitForBotReply(conversation.id);
   }
   ```
-- [ ] **9.1.2** Implement `waitForBotReply(conversationId: string): Promise<string>` — polls `bp.listMessages` every 500ms until a bot message appears, then returns its text. Add a 15-second timeout.
-- [ ] **9.1.3** Note: The exact `@botpress/client` API shape may differ slightly — check the package's TypeScript types and adjust accordingly. The above is a guide, not guaranteed API.
+- [x] **9.1.2** Implement `waitForBotReply(conversationId: string): Promise<string>` — polls `bp.listMessages` every 500ms until a bot message appears, then returns its text. Add a 15-second timeout.
+- [x] **9.1.3** Note: The exact `@botpress/client` API shape may differ slightly — check the package's TypeScript types and adjust accordingly. The above is a guide, not guaranteed API.
 
 ### 9.2 Build the Commander plan parser
-- [ ] **9.2.1** Create `src/botpress/commanderParser.ts` — exports `parseCommanderResponse(rawResponse: string): CommanderPlan`
-- [ ] **9.2.2** The Botpress bot *should* return raw JSON (that's what the system prompt demands) but handle edge cases:
+- [x] **9.2.1** Create `src/botpress/commanderParser.ts` — exports `parseCommanderResponse(rawResponse: string): CommanderPlan`
+- [x] **9.2.2** The Botpress bot *should* return raw JSON (that's what the system prompt demands) but handle edge cases:
   ```typescript
   // Strip markdown code fences if the LLM added them anyway
   const cleaned = rawResponse.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
   const parsed = JSON.parse(cleaned);
   ```
-- [ ] **9.2.3** Validate the parsed object: confirm `agents` is an array, each agent has a `role` in `VALID_ROLES` and a `task` string. Throw a descriptive error if not.
-- [ ] **9.2.4** Add a retry: if parsing fails, call `askCommander` again with an extra instruction appended: `" Respond with ONLY the JSON object, no other text."`
+- [x] **9.2.3** Validate the parsed object: confirm `agents` is an array, each agent has a `role` in `VALID_ROLES` and a `task` string. Throw a descriptive error if not.
+- [x] **9.2.4** Add a retry: if parsing fails, call `askCommander` again with an extra instruction appended: `" Respond with ONLY the JSON object, no other text."`
 
 ### 9.3 Build the Commander orchestrator
 - [ ] **9.3.1** Create `src/agents/commander.ts` — exports `runCommander(goal: string, discordClient: Client): Promise<void>`
