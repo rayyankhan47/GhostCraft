@@ -12,6 +12,11 @@ export default defineConfig({
     state: z.object({}),
   },
 
+  defaultModels: {
+    autonomous: 'best',
+    zai: 'best',
+  },
+
   dependencies: {
     integrations: {
       chat: {
