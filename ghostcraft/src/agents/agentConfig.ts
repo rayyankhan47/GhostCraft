@@ -51,6 +51,7 @@ export function getRoleConfig(role: AgentRole): RoleConfig {
 
 export function generateBotUsername(role: AgentRole, _existingAgents: AgentState[]): string {
   const base = ROLE_CONFIGS[role].botUsernameBase;
-  const suffix = Math.random().toString(36).substring(2, 5);
-  return `${base}_${suffix}`;
+  const suffix = Math.random().toString(36).substring(2, 4);
+  // Minecraft usernames max 16 chars — truncate if needed
+  return `${base}_${suffix}`.substring(0, 16);
 }
