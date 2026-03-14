@@ -399,15 +399,15 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [x] **6.2.1** Create `src/discord/client.ts` — initializes a `Client` with intents: `Guilds`, `GuildMessages`, `MessageContent`
 - [x] **6.2.2** Export a singleton `client` and a `loginDiscord(): Promise<void>` function
 - [x] **6.2.3** In `src/index.ts`, call `loginDiscord()` and log when ready: `client.once('ready', () => log('Bot online: ' + client.user?.tag))`
-- [ ] **6.2.4** Run `npm run dev` — confirm `Bot online: GhostCraft#XXXX` prints in the terminal. The bot should show as online in your Discord server.
+- [x] **6.2.4** Run `npm run dev` — confirm `Bot online: GhostCraft#XXXX` prints in the terminal. The bot should show as online in your Discord server.
 
 ### 6.3 Register slash commands with Discord
-- [ ] **6.3.1** Create `src/discord/registerCommands.ts` — uses Discord REST API to register these four commands guild-scoped (instant, no 1-hour wait):
+- [x] **6.3.1** Create `src/discord/registerCommands.ts` — uses Discord REST API to register these four commands guild-scoped (instant, no 1-hour wait):
   - `/spawn` — option: `role` (string, required, choices: lumberjack / miner / farmer / builder)
   - `/auto` — option: `goal` (string, required)
   - `/status` — no options
   - `/dismiss` — option: `agent` (string, required)
-- [ ] **6.3.2** Create `scripts/register-commands.ts` — a one-off script that calls this function
+- [x] **6.3.2** Create `scripts/register-commands.ts` — a one-off script that calls this function
 - [ ] **6.3.3** Run it: `npx ts-node scripts/register-commands.ts`
 - [ ] **6.3.4** Open Discord, type `/` in `#ghostcraft-main` — confirm all four GhostCraft commands appear in the autocomplete
 
