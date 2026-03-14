@@ -341,26 +341,26 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 5 — Agent Registry & Manager
 
 ### 5.1 Build the Agent Registry
-- [ ] **5.1.1** Create `src/agents/agentRegistry.ts` — an in-memory `Map<string, AgentState>` with these exports:
+- [x] **5.1.1** Create `src/agents/agentRegistry.ts` — an in-memory `Map<string, AgentState>` with these exports:
   - `registerAgent(state: AgentState): void`
   - `getAgent(agentId: string): AgentState | undefined`
   - `getAgentByThreadId(threadId: string): AgentState | undefined` — linear scan comparing `state.threadId`
   - `updateAgent(agentId: string, updates: Partial<AgentState>): void`
   - `removeAgent(agentId: string): void`
   - `getAllAgents(): AgentState[]`
-- [ ] **5.1.2** `getAgentByThreadId` is the most important function — it's how messages from Discord thread users get routed to the right bot. Implement it carefully.
-- [ ] **5.1.3** `updateAgent` should merge the partial update into the existing state using object spread: `map.set(id, { ...existing, ...updates })`
+- [x] **5.1.2** `getAgentByThreadId` is the most important function — it's how messages from Discord thread users get routed to the right bot. Implement it carefully.
+- [x] **5.1.3** `updateAgent` should merge the partial update into the existing state using object spread: `map.set(id, { ...existing, ...updates })`
 
 ### 5.2 Build the Agent Config
-- [ ] **5.2.1** Create `src/agents/agentConfig.ts` — exports `getRoleConfig(role: AgentRole)` returning the role's name, emoji, color, personality description, and default loadout
-- [ ] **5.2.2** Include personality descriptions for all four roles exactly as in the spec (enthusiastic lumberjack, gruff miner, calm farmer, perfectionist builder)
-- [ ] **5.2.3** Export `generateBotUsername(role: AgentRole, existing: AgentState[]): string` — returns `GC_Lumberjack`, and if one already exists in the registry, returns `GC_Lumberjack_2`, etc.
+- [x] **5.2.1** Create `src/agents/agentConfig.ts` — exports `getRoleConfig(role: AgentRole)` returning the role's name, emoji, color, personality description, and default loadout
+- [x] **5.2.2** Include personality descriptions for all four roles exactly as in the spec (enthusiastic lumberjack, gruff miner, calm farmer, perfectionist builder)
+- [x] **5.2.3** Export `generateBotUsername(role: AgentRole, existing: AgentState[]): string` — returns `GC_Lumberjack`, and if one already exists in the registry, returns `GC_Lumberjack_2`, etc.
 
 ### 5.3 Build the Agent Manager
-- [ ] **5.3.1** Create `src/agents/agentManager.ts` — exports two functions:
+- [x] **5.3.1** Create `src/agents/agentManager.ts` — exports two functions:
   - `spawnAgent(role, spawnedByCommander, client): Promise<AgentState>`
   - `dismissAgent(agentId, client): Promise<void>`
-- [ ] **5.3.2** `spawnAgent` orchestrates these steps **in order**:
+- [x] **5.3.2** `spawnAgent` orchestrates these steps **in order**:
   1. Validate role is in `VALID_ROLES`
   2. Generate `agentId` (use `uuid`)
   3. Get role config
@@ -374,8 +374,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   11. Start embed update loop
   12. Post personality greeting to thread (non-blocking — don't `await`)
   13. Return the full `AgentState`
-- [ ] **5.3.3** `dismissAgent` does: cancel bot task → disconnect bot → stop embed loop → archive thread → remove from registry. Each step in a try/catch so one failure doesn't block the others.
-- [ ] **5.3.4** If `spawnAgent` fails at any step after the thread has been created, delete the thread and re-throw so the user sees a clean error in Discord.
+- [x] **5.3.3** `dismissAgent` does: cancel bot task → disconnect bot → stop embed loop → archive thread → remove from registry. Each step in a try/catch so one failure doesn't block the others.
+- [x] **5.3.4** If `spawnAgent` fails at any step after the thread has been created, delete the thread and re-throw so the user sees a clean error in Discord.
 
 ---
 
