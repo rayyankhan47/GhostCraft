@@ -213,8 +213,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ### 3.3 Start and verify the server
 - [x] **3.3.1** Start the server: `java -jar paper.jar nogui` (run this in its own terminal tab — leave it running)
 - [x] **3.3.2** Wait for `Done! For help, type "help"` in the server console
-- [ ] **3.3.3** Open Minecraft, add server `localhost:25565`, join — confirm you can connect
-- [ ] **3.3.4** In the Minecraft chat, run `/gamemode creative` — confirm it works (you should already be in creative per server.properties but verify)
+- [x] **3.3.3** Open Minecraft, add server `localhost:25565`, join — confirm you can connect
+- [x] **3.3.4** In the Minecraft chat, run `/gamemode creative` — confirm it works (you should already be in creative per server.properties but verify)
 
 ### 3.4 Write and test the RCON connection
 - [x] **3.4.1** Create `src/minecraft/serverAdmin.ts` with:
@@ -223,7 +223,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   - `giveLoadout(botUsername: string, items: string[]): Promise<void>` — loops through items and runs `/give` for each
 - [x] **3.4.2** Create `scripts/test-rcon.ts` — connects RCON, runs `say RCON connected!`, disconnects
 - [x] **3.4.3** Run it: `npx ts-node scripts/test-rcon.ts` — confirm the message appears in the Minecraft server console
-- [ ] **3.4.4** Extend the test to give yourself (your Minecraft username) an iron axe via `/give <yourname> iron_axe 1` — confirm it appears in your in-game inventory
+- [x] **3.4.4** Extend the test to give yourself (your Minecraft username) an iron axe via `/give <yourname> iron_axe 1` — confirm it appears in your in-game inventory
 
 ### 3.5 Design and prepare the demo world
 - [ ] **3.5.1** Join the server in Minecraft as a regular player

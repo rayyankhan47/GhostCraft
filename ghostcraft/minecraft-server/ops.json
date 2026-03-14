@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "uuid": "be6aa88f-eda5-38b9-863e-0d396f217ec3",
+    "name": "SuperSalafi",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
