@@ -520,7 +520,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [x] **8.1.5** Add a 60-second timeout to `collectResource` — if no progress is made (taskCurrent hasn't changed), set status to `'error'` to prevent bots getting permanently stuck during the demo
 
 ### 8.2 Wire task execution to the Discord conversation
-- [ ] **8.2.1** Create `src/commands/conversationHandler.ts` — registers a `messageCreate` listener on the Discord client:
+- [x] **8.2.1** Create `src/commands/conversationHandler.ts` — registers a `messageCreate` listener on the Discord client:
   ```typescript
   client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
@@ -529,12 +529,12 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
     await handleAgentMessage(agent, message.content, client);
   });
   ```
-- [ ] **8.2.2** Implement `handleAgentMessage`:
+- [x] **8.2.2** Implement `handleAgentMessage`:
   1. Update agent state: `status: 'working'`, `currentTask: content`, reset `taskCurrent: 0`
   2. Post personality task-start message to thread (non-blocking)
   3. Call `taskExecutor.executeTask(agent.agentId, content)`
   4. On completion, post personality completion message
-- [ ] **8.2.3** Import `conversationHandler.ts` in `src/index.ts` (the import itself registers the listener)
+- [x] **8.2.3** Import `conversationHandler.ts` in `src/index.ts` (the import itself registers the listener)
 - [ ] **8.2.4** **End-to-end test:** Run the full bot, spawn a lumberjack with `/spawn lumberjack`, type `collect 5 oak logs` in its thread — confirm the bot walks to the tree area and starts chopping
 
 ---
