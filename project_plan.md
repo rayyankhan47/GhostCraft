@@ -50,25 +50,25 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 1 — Repository & Project Scaffolding
 
 ### 1.1 Initialize the repository
-- [ ] **1.1.1** Inside `bphacks2026/`, create the project folder: `mkdir ghostcraft && cd ghostcraft`
-- [ ] **1.1.2** Initialize git: `git init`
-- [ ] **1.1.3** Initialize npm: `npm init -y`
-- [ ] **1.1.4** Create a `.gitignore` with entries for: `node_modules/`, `.env`, `dist/`, `*.jar`, `minecraft-server/logs/`, `minecraft-server/world/`
+- [x] **1.1.1** Inside `bphacks2026/`, create the project folder: `mkdir ghostcraft && cd ghostcraft`
+- [x] **1.1.2** Initialize git: `git init`
+- [x] **1.1.3** Initialize npm: `npm init -y`
+- [x] **1.1.4** Create a `.gitignore` with entries for: `node_modules/`, `.env`, `dist/`, `*.jar`, `minecraft-server/logs/`, `minecraft-server/world/`
 
 ### 1.2 Configure TypeScript
-- [ ] **1.2.1** Install TypeScript and ts-node: `npm install -D typescript ts-node @types/node`
-- [ ] **1.2.2** Generate tsconfig: `npx tsc --init`
-- [ ] **1.2.3** Edit `tsconfig.json` — set `"target": "ES2020"`, `"module": "commonjs"`, `"rootDir": "./src"`, `"outDir": "./dist"`, `"strict": true`, `"esModuleInterop": true`, `"resolveJsonModule": true`
-- [ ] **1.2.4** Add to `package.json` scripts: `"build": "tsc"`, `"dev": "ts-node src/index.ts"`, `"start": "node dist/index.js"`
+- [x] **1.2.1** Install TypeScript and ts-node: `npm install -D typescript ts-node @types/node`
+- [x] **1.2.2** Generate tsconfig: `npx tsc --init`
+- [x] **1.2.3** Edit `tsconfig.json` — set `"target": "ES2020"`, `"module": "commonjs"`, `"rootDir": "./src"`, `"outDir": "./dist"`, `"strict": true`, `"esModuleInterop": true`, `"resolveJsonModule": true`
+- [x] **1.2.4** Add to `package.json` scripts: `"build": "tsc"`, `"dev": "ts-node src/index.ts"`, `"start": "node dist/index.js"`
 
 ### 1.3 Create the directory structure
-- [ ] **1.3.1** Create all source directories:
+- [x] **1.3.1** Create all source directories:
   ```
   mkdir -p src/{commands,agents,minecraft,discord,botpress,llm,utils} scripts
   ```
-- [ ] **1.3.2** Create a placeholder `index.ts` in each `src/` subdirectory (`export {};`) so TypeScript doesn't complain about empty dirs
-- [ ] **1.3.3** Create `src/index.ts` as the main entry point (empty for now)
-- [ ] **1.3.4** Verify final structure:
+- [x] **1.3.2** Create a placeholder `index.ts` in each `src/` subdirectory (`export {};`) so TypeScript doesn't complain about empty dirs
+- [x] **1.3.3** Create `src/index.ts` as the main entry point (empty for now)
+- [x] **1.3.4** Verify final structure:
   ```
   ghostcraft/
   ├── src/
@@ -86,7 +86,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   ```
 
 ### 1.4 Set up environment variables
-- [ ] **1.4.1** Create `.env.example` with all variables listed:
+- [x] **1.4.1** Create `.env.example` with all variables listed:
   ```
   # Discord
   DISCORD_BOT_TOKEN=
@@ -107,21 +107,21 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   # LLM (for personality messages — use one)
   ANTHROPIC_API_KEY=
   ```
-- [ ] **1.4.2** Copy to `.env`: `cp .env.example .env`
-- [ ] **1.4.3** Install dotenv: `npm install dotenv`
-- [ ] **1.4.4** Create `src/utils/env.ts` — loads and exports all env vars with types. Throw a clear error at startup if any required variable is missing so you know immediately what's wrong.
+- [x] **1.4.2** Copy to `.env`: `cp .env.example .env`
+- [x] **1.4.3** Install dotenv: `npm install dotenv`
+- [x] **1.4.4** Create `src/utils/env.ts` — loads and exports all env vars with types. Throw a clear error at startup if any required variable is missing so you know immediately what's wrong.
 
 ### 1.5 Install all dependencies
-- [ ] **1.5.1** Install runtime dependencies:
+- [x] **1.5.1** Install runtime dependencies:
   ```
   npm install mineflayer mineflayer-pathfinder discord.js @botpress/client @anthropic-ai/sdk rcon-client uuid dotenv
   ```
-- [ ] **1.5.2** Install dev dependencies:
+- [x] **1.5.2** Install dev dependencies:
   ```
   npm install -D @types/uuid
   ```
-- [ ] **1.5.3** Confirm `package.json` lists all of the above and `node_modules/` exists
-- [ ] **1.5.4** Run `npx tsc --noEmit` — should produce zero errors on empty files
+- [x] **1.5.3** Confirm `package.json` lists all of the above and `node_modules/` exists
+- [x] **1.5.4** Run `npx tsc --noEmit` — should produce zero errors on empty files
 
 ---
 
@@ -240,7 +240,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 4 — Core Utilities & Type Definitions
 
 ### 4.1 Define shared types
-- [ ] **4.1.1** Create `src/utils/types.ts` and define:
+- [x] **4.1.1** Create `src/utils/types.ts` and define:
   ```typescript
   export type AgentRole = 'lumberjack' | 'miner' | 'farmer' | 'builder';
   export type AgentStatus = 'idle' | 'working' | 'complete' | 'error';
@@ -281,10 +281,10 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
     embedMessageId: string;
   }
   ```
-- [ ] **4.1.2** Export all types — they'll be imported everywhere
+- [x] **4.1.2** Export all types — they'll be imported everywhere
 
 ### 4.2 Define constants
-- [ ] **4.2.1** Create `src/utils/constants.ts` with:
+- [x] **4.2.1** Create `src/utils/constants.ts` with:
   ```typescript
   import { AgentRole } from './types';
 
@@ -325,8 +325,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   ```
 
 ### 4.3 Create helper utilities
-- [ ] **4.3.1** Create `src/utils/logger.ts` — simple wrapper with `[INFO]`, `[WARN]`, `[ERROR]` prefixes and timestamps. Export `log`, `warn`, `error` functions. Use these everywhere instead of `console.log`.
-- [ ] **4.3.2** Create `src/utils/progressBar.ts`:
+- [x] **4.3.1** Create `src/utils/logger.ts` — simple wrapper with `[INFO]`, `[WARN]`, `[ERROR]` prefixes and timestamps. Export `log`, `warn`, `error` functions. Use these everywhere instead of `console.log`.
+- [x] **4.3.2** Create `src/utils/progressBar.ts`:
   ```typescript
   export function buildProgressBar(current: number, total: number, length = 12): string {
     if (total === 0) return '░'.repeat(length);
@@ -334,7 +334,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
     return '█'.repeat(filled) + '░'.repeat(length - filled);
   }
   ```
-- [ ] **4.3.3** Create `src/utils/sleep.ts`: `export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));` — you'll need this for RCON delays
+- [x] **4.3.3** Create `src/utils/sleep.ts`: `export const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));` — you'll need this for RCON delays
 
 ---
 
