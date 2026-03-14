@@ -1,0 +1,33 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+function requireEnv(key: string): string {
+  const value = process.env[key];
+  if (!value) throw new Error(`Missing required environment variable: ${key}`);
+  return value;
+}
+
+function optionalEnv(key: string, fallback: string): string {
+  return process.env[key] ?? fallback;
+}
+
+export const env = {
+  // Discord
+  DISCORD_BOT_TOKEN:       requireEnv('DISCORD_BOT_TOKEN'),
+  DISCORD_GUILD_ID:        requireEnv('DISCORD_GUILD_ID'),
+  DISCORD_CLIENT_ID:       requireEnv('DISCORD_CLIENT_ID'),
+  DISCORD_MAIN_CHANNEL_ID: requireEnv('DISCORD_MAIN_CHANNEL_ID'),
+
+  // Botpress
+  BOTPRESS_BOT_ID:  requireEnv('BOTPRESS_BOT_ID'),
+  BOTPRESS_TOKEN:   requireEnv('BOTPRESS_TOKEN'),
+
+  // Minecraft
+  MC_SERVER_HOST: optionalEnv('MC_SERVER_HOST', 'localhost'),
+  MC_SERVER_PORT: parseInt(optionalEnv('MC_SERVER_PORT', '25565'), 10),
+  RCON_PASSWORD:  optionalEnv('RCON_PASSWORD', 'ghostcraft123'),
+  RCON_PORT:      parseInt(optionalEnv('RCON_PORT', '25575'), 10),
+
+  // LLM
+  ANTHROPIC_API_KEY: requireEnv('ANTHROPIC_API_KEY'),
+};

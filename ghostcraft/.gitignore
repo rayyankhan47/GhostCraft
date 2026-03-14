@@ -1,0 +1,8 @@
+node_modules/
+.env
+dist/
+*.jar
+minecraft-server/logs/
+minecraft-server/world/
+minecraft-server/cache/
+minecraft-server/libraries/
