@@ -211,8 +211,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [ ] **3.2.2** Save and close the file
 
 ### 3.3 Start and verify the server
-- [ ] **3.3.1** Start the server: `java -jar paper.jar nogui` (run this in its own terminal tab — leave it running)
-- [ ] **3.3.2** Wait for `Done! For help, type "help"` in the server console
+- [x] **3.3.1** Start the server: `java -jar paper.jar nogui` (run this in its own terminal tab — leave it running)
+- [x] **3.3.2** Wait for `Done! For help, type "help"` in the server console
 - [ ] **3.3.3** Open Minecraft, add server `localhost:25565`, join — confirm you can connect
 - [ ] **3.3.4** In the Minecraft chat, run `/gamemode creative` — confirm it works (you should already be in creative per server.properties but verify)
 
@@ -222,7 +222,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   - `runCommand(command: string): Promise<string>` — sends a raw command
   - `giveLoadout(botUsername: string, items: string[]): Promise<void>` — loops through items and runs `/give` for each
 - [x] **3.4.2** Create `scripts/test-rcon.ts` — connects RCON, runs `say RCON connected!`, disconnects
-- [ ] **3.4.3** Run it: `npx ts-node scripts/test-rcon.ts` — confirm the message appears in the Minecraft server console
+- [x] **3.4.3** Run it: `npx ts-node scripts/test-rcon.ts` — confirm the message appears in the Minecraft server console
 - [ ] **3.4.4** Extend the test to give yourself (your Minecraft username) an iron axe via `/give <yourname> iron_axe 1` — confirm it appears in your in-game inventory
 
 ### 3.5 Design and prepare the demo world
@@ -481,8 +481,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 
 ### 7.3 Write a standalone bot connection test
 - [x] **7.3.1** Create `scripts/test-bot.ts` — spawns `GC_Test`, logs its position every 5 seconds for 15 seconds, then disconnects
-- [ ] **7.3.2** Run it: `npx ts-node scripts/test-bot.ts` — confirm the bot appears in the Minecraft server console and you can see it standing in the world
-- [ ] **7.3.3** After the script ends, confirm the bot cleanly disconnects (disappears from the player list)
+- [x] **7.3.2** Run it: `npx ts-node scripts/test-bot.ts` — confirm the bot appears in the Minecraft server console and you can see it standing in the world
+- [x] **7.3.3** After the script ends, confirm the bot cleanly disconnects (disappears from the player list)
 
 ---
 
