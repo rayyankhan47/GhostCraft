@@ -130,13 +130,13 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 > This step has nothing to do with writing code. You're configuring the Botpress cloud workspace that will act as the Commander's brain. Take your time here — getting this right means the Commander will work correctly when you call it from code later.
 
 ### 2.1 Create your Botpress workspace bot
-- [ ] **2.1.1** Go to [https://app.botpress.cloud](https://app.botpress.cloud) and log into your workspace
-- [ ] **2.1.2** Click **"Create Bot"** — name it `GhostCraft Commander`
-- [ ] **2.1.3** Once created, click into the bot — you'll land on the **Studio** (the visual editor). You won't use the visual editor much — the important parts are in Settings.
+- [x] **2.1.1** Go to [https://app.botpress.cloud](https://app.botpress.cloud) and log into your workspace
+- [x] **2.1.2** Click **"Create Bot"** — name it `GhostCraft Commander`
+- [x] **2.1.3** Once created, click into the bot — you'll land on the **Studio** (the visual editor). You won't use the visual editor much — the important parts are in Settings.
 
 ### 2.2 Configure the Commander agent's personality and instructions
-- [ ] **2.2.1** In the Studio, find the **"Agent"** section or **"AI Task"** node (the exact label depends on the Botpress version — look for where you set the bot's system prompt / persona instructions)
-- [ ] **2.2.2** Set the bot's **system prompt** to the following:
+- [x] **2.2.1** In the Studio, find the **"Agent"** section or **"AI Task"** node (the exact label depends on the Botpress version — look for where you set the bot's system prompt / persona instructions)
+- [x] **2.2.2** Set the bot's **system prompt** to the following:
   ```
   You are Commander, an AI orchestrator for a team of Minecraft worker bots.
   Your job is to analyze a high-level goal and decompose it into specific tasks
@@ -165,13 +165,13 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   Only use these role values: lumberjack, miner, farmer, builder.
   Never include any text outside the JSON object.
   ```
-- [ ] **2.2.3** Save the system prompt
+- [x] **2.2.3** Save the system prompt
 
 ### 2.3 Get your Botpress credentials
-- [ ] **2.3.1** In the Botpress workspace, go to **Settings → Developer** (or look for **"API"** or **"Integrations"** in the sidebar)
-- [ ] **2.3.2** Find and copy your **Bot ID** — it looks like a UUID or slug (e.g. `ghostcraft-commander-abc123`). Save this as `BOTPRESS_BOT_ID` in your `.env`
-- [ ] **2.3.3** Generate a **Personal Access Token** (PAT) — this is what your code uses to authenticate API calls to Botpress. Copy it immediately (it's only shown once). Save as `BOTPRESS_TOKEN` in your `.env`
-- [ ] **2.3.4** Note the **Botpress API base URL** — usually `https://api.botpress.cloud`. You'll use this in `src/botpress/client.ts`
+- [x] **2.3.1** In the Botpress workspace, go to **Settings → Developer** (or look for **"API"** or **"Integrations"** in the sidebar)
+- [x] **2.3.2** Find and copy your **Bot ID** — it looks like a UUID or slug (e.g. `ghostcraft-commander-abc123`). Save this as `BOTPRESS_BOT_ID` in your `.env`
+- [x] **2.3.3** Generate a **Personal Access Token** (PAT) — this is what your code uses to authenticate API calls to Botpress. Copy it immediately (it's only shown once). Save as `BOTPRESS_TOKEN` in your `.env`
+- [x] **2.3.4** Note the **Botpress API base URL** — usually `https://api.botpress.cloud`. You'll use this in `src/botpress/client.ts`
 
 ### 2.4 Test the Botpress bot manually
 - [ ] **2.4.1** In the Studio, find the **"Emulator"** or **"Webchat"** preview panel (bottom of screen or right sidebar)
