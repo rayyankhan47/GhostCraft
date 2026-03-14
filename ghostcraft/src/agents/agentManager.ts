@@ -10,7 +10,7 @@ import { buildIdleEmbed } from '../discord/embedBuilder';
 import { startUpdateLoop, stopUpdateLoop } from '../discord/embedUpdater';
 import { createBot } from '../minecraft/botFactory';
 import { registerBot, removeBot } from '../minecraft/botController';
-import { giveLoadout } from '../minecraft/serverAdmin';
+import { giveLoadout, setBotGamemode } from '../minecraft/serverAdmin';
 import { generatePersonalityMessage } from '../llm/personalityPrompt';
 import { postToThread } from '../discord/threadManager';
 import { log, error } from '../utils/logger';
@@ -63,8 +63,9 @@ export async function spawnAgent(
     const bot = await createBot(botUsername);
     registerBot(agentId, bot);
 
-    // Step 4 — Wait a beat then give the bot its loadout via RCON
+    // Step 4 — Wait a beat then set gamemode to survival and give loadout via RCON
     await sleep(1000);
+    await setBotGamemode(botUsername, 'survival');
     await giveLoadout(botUsername, config.loadout);
 
     // Step 5 — Build the final agent state and register it

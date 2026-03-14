@@ -20,6 +20,11 @@ export async function runCommand(command: string): Promise<string> {
   return await rcon.send(command);
 }
 
+export async function setBotGamemode(botUsername: string, gamemode: 'survival' | 'creative'): Promise<void> {
+  await runCommand(`gamemode ${gamemode} ${botUsername}`);
+  log(`[RCON] Set ${botUsername} to ${gamemode}`);
+}
+
 export async function giveLoadout(botUsername: string, items: string[]): Promise<void> {
   for (const item of items) {
     const parts = item.split(' ');
