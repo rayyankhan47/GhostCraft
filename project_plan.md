@@ -489,8 +489,8 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 8 — Task Execution Engine
 
 ### 8.1 Build the Task Executor
-- [ ] **8.1.1** Create `src/minecraft/taskExecutor.ts` — exports `executeTask(agentId: string, taskString: string): Promise<void>`
-- [ ] **8.1.2** Build a task parser using regex pattern matching:
+- [x] **8.1.1** Create `src/minecraft/taskExecutor.ts` — exports `executeTask(agentId: string, taskString: string): Promise<void>`
+- [x] **8.1.2** Build a task parser using regex pattern matching:
   ```typescript
   // "collect N <item>" / "mine N <item>" / "chop N <item>"
   const collectMatch = taskString.match(/(?:collect|mine|chop|harvest|get)\s+(\d+)\s+(.+)/i);
@@ -501,7 +501,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   // "stop" / "cancel" / "halt"
   const stopMatch = /stop|cancel|halt/i.test(taskString);
   ```
-- [ ] **8.1.3** Implement `collectResource(agentId, resourceName, count)`:
+- [x] **8.1.3** Implement `collectResource(agentId, resourceName, count)`:
   1. Normalize the resource name using a lookup map (e.g. `"oak logs"` → `"oak_log"`)
   2. Use `bot.findBlock({ matching: mcData.blocksByName[blockName].id, maxDistance: 64 })` to locate the nearest block
   3. Use pathfinder to navigate to it: `bot.pathfinder.setGoal(new GoalBlock(pos.x, pos.y, pos.z))`
@@ -509,7 +509,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
   5. After each dig, count items in inventory and call `updateAgent` with new `taskCurrent` and `taskProgress`
   6. Repeat until `taskCurrent >= count`
   7. On completion, call `updateAgent` with `status: 'complete'`
-- [ ] **8.1.4** Build a resource name normalizer map covering the demo resources at minimum:
+- [x] **8.1.4** Build a resource name normalizer map covering the demo resources at minimum:
   ```typescript
   const RESOURCE_MAP: Record<string, string> = {
     'oak log': 'oak_log', 'oak logs': 'oak_log', 'wood': 'oak_log',
@@ -517,7 +517,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
     'wheat': 'wheat', 'coal': 'coal_ore',
   };
   ```
-- [ ] **8.1.5** Add a 60-second timeout to `collectResource` — if no progress is made (taskCurrent hasn't changed), set status to `'error'` to prevent bots getting permanently stuck during the demo
+- [x] **8.1.5** Add a 60-second timeout to `collectResource` — if no progress is made (taskCurrent hasn't changed), set status to `'error'` to prevent bots getting permanently stuck during the demo
 
 ### 8.2 Wire task execution to the Discord conversation
 - [ ] **8.2.1** Create `src/commands/conversationHandler.ts` — registers a `messageCreate` listener on the Discord client:
