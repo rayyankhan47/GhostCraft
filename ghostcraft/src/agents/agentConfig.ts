@@ -49,11 +49,8 @@ export function getRoleConfig(role: AgentRole): RoleConfig {
   return ROLE_CONFIGS[role];
 }
 
-export function generateBotUsername(role: AgentRole, existingAgents: AgentState[]): string {
+export function generateBotUsername(role: AgentRole, _existingAgents: AgentState[]): string {
   const base = ROLE_CONFIGS[role].botUsernameBase;
-  const existingNames = existingAgents.map(a => a.botUsername);
-  if (!existingNames.includes(base)) return base;
-  let i = 2;
-  while (existingNames.includes(`${base}_${i}`)) i++;
-  return `${base}_${i}`;
+  const suffix = Math.random().toString(36).substring(2, 5);
+  return `${base}_${suffix}`;
 }

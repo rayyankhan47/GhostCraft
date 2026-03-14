@@ -116,6 +116,13 @@ export async function dismissAgent(agentId: string, client: Client): Promise<voi
   // Stop embed loop first to prevent edits on a closing thread
   try { stopUpdateLoop(agentId); } catch (e) { error('[AgentManager] stopUpdateLoop error:', e); }
 
+  // Teleport bot to spawn so next bot with same name starts fresh
+  try {
+    const { runCommand } = await import('../minecraft/serverAdmin');
+    await runCommand(`tp ${state.botUsername} 0 64 0`);
+    await sleep(500);
+  } catch (e) { error('[AgentManager] Teleport to spawn error:', e); }
+
   // Disconnect the Mineflayer bot
   try {
     const { getBot } = await import('../minecraft/botController');
