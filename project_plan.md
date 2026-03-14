@@ -217,11 +217,11 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [ ] **3.3.4** In the Minecraft chat, run `/gamemode creative` — confirm it works (you should already be in creative per server.properties but verify)
 
 ### 3.4 Write and test the RCON connection
-- [ ] **3.4.1** Create `src/minecraft/serverAdmin.ts` with:
+- [x] **3.4.1** Create `src/minecraft/serverAdmin.ts` with:
   - `connectRcon(): Promise<void>` — connects using env vars
   - `runCommand(command: string): Promise<string>` — sends a raw command
   - `giveLoadout(botUsername: string, items: string[]): Promise<void>` — loops through items and runs `/give` for each
-- [ ] **3.4.2** Create `scripts/test-rcon.ts` — connects RCON, runs `say RCON connected!`, disconnects
+- [x] **3.4.2** Create `scripts/test-rcon.ts` — connects RCON, runs `say RCON connected!`, disconnects
 - [ ] **3.4.3** Run it: `npx ts-node scripts/test-rcon.ts` — confirm the message appears in the Minecraft server console
 - [ ] **3.4.4** Extend the test to give yourself (your Minecraft username) an iron axe via `/give <yourname> iron_axe 1` — confirm it appears in your in-game inventory
 
@@ -480,7 +480,7 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [x] **7.2.3** The embed updater loop should call `getBotState` on each tick and push the fresh data into `AgentState` via `updateAgent` before building the embed
 
 ### 7.3 Write a standalone bot connection test
-- [ ] **7.3.1** Create `scripts/test-bot.ts` — spawns `GC_Test`, logs its position every 5 seconds for 15 seconds, then disconnects
+- [x] **7.3.1** Create `scripts/test-bot.ts` — spawns `GC_Test`, logs its position every 5 seconds for 15 seconds, then disconnects
 - [ ] **7.3.2** Run it: `npx ts-node scripts/test-bot.ts` — confirm the bot appears in the Minecraft server console and you can see it standing in the world
 - [ ] **7.3.3** After the script ends, confirm the bot cleanly disconnects (disappears from the player list)
 
