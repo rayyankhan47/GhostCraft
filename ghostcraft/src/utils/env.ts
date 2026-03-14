@@ -19,8 +19,9 @@ export const env = {
   DISCORD_MAIN_CHANNEL_ID: requireEnv('DISCORD_MAIN_CHANNEL_ID'),
 
   // Botpress — validated lazily in bpClient.ts when Commander is invoked
-  BOTPRESS_BOT_ID:  optionalEnv('BOTPRESS_BOT_ID', ''),
-  BOTPRESS_TOKEN:   optionalEnv('BOTPRESS_TOKEN', ''),
+  BOTPRESS_BOT_ID:    optionalEnv('BOTPRESS_BOT_ID', ''),
+  BOTPRESS_TOKEN:     optionalEnv('BOTPRESS_TOKEN', ''),
+  BOTPRESS_WEBHOOK_ID: optionalEnv('BOTPRESS_WEBHOOK_ID', ''),
 
   // Minecraft
   MC_SERVER_HOST: optionalEnv('MC_SERVER_HOST', 'localhost'),
