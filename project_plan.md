@@ -382,23 +382,23 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 ## Step 6 — Discord Integration
 
 ### 6.1 Set up the Discord bot application *(non-code — do this in the browser)*
-- [ ] **6.1.1** Go to [https://discord.com/developers/applications](https://discord.com/developers/applications) and click **"New Application"** — name it `GhostCraft`
-- [ ] **6.1.2** Go to **Bot** tab → click **"Add Bot"** → confirm
-- [ ] **6.1.3** Under **Bot**, click **"Reset Token"**, copy the token → save as `DISCORD_BOT_TOKEN` in `.env`
-- [ ] **6.1.4** Under **Bot → Privileged Gateway Intents**, enable: **Message Content Intent** and **Server Members Intent**
-- [ ] **6.1.5** Go to **OAuth2 → URL Generator**:
+- [x] **6.1.1** Go to [https://discord.com/developers/applications](https://discord.com/developers/applications) and click **"New Application"** — name it `GhostCraft`
+- [x] **6.1.2** Go to **Bot** tab → click **"Add Bot"** → confirm
+- [x] **6.1.3** Under **Bot**, click **"Reset Token"**, copy the token → save as `DISCORD_BOT_TOKEN` in `.env`
+- [x] **6.1.4** Under **Bot → Privileged Gateway Intents**, enable: **Message Content Intent** and **Server Members Intent**
+- [x] **6.1.5** Go to **OAuth2 → URL Generator**:
   - Scopes: `bot`, `applications.commands`
   - Bot Permissions: `Send Messages`, `Create Public Threads`, `Manage Threads`, `Embed Links`, `Read Message History`, `Use Slash Commands`, `Manage Messages`
-- [ ] **6.1.6** Copy the generated URL, open it in your browser, and invite the bot to your Discord server
-- [ ] **6.1.7** In your Discord server, create a category called `GHOSTCRAFT` and inside it create a channel called `#ghostcraft-main`
-- [ ] **6.1.8** Right-click `#ghostcraft-main` → **Copy Channel ID** → save as `DISCORD_MAIN_CHANNEL_ID` in `.env`
-- [ ] **6.1.9** Go to **General Information** in the dev portal → copy **Application ID** → save as `DISCORD_CLIENT_ID` in `.env`
-- [ ] **6.1.10** Right-click your Discord server icon → **Copy Server ID** → save as `DISCORD_GUILD_ID` in `.env`
+- [x] **6.1.6** Copy the generated URL, open it in your browser, and invite the bot to your Discord server
+- [x] **6.1.7** In your Discord server, create a category called `GHOSTCRAFT` and inside it create a channel called `#ghostcraft-main`
+- [x] **6.1.8** Right-click `#ghostcraft-main` → **Copy Channel ID** → save as `DISCORD_MAIN_CHANNEL_ID` in `.env`
+- [x] **6.1.9** Go to **General Information** in the dev portal → copy **Application ID** → save as `DISCORD_CLIENT_ID` in `.env`
+- [x] **6.1.10** Right-click your Discord server icon → **Copy Server ID** → save as `DISCORD_GUILD_ID` in `.env`
 
 ### 6.2 Set up the Discord.js client in code
-- [ ] **6.2.1** Create `src/discord/client.ts` — initializes a `Client` with intents: `Guilds`, `GuildMessages`, `MessageContent`
-- [ ] **6.2.2** Export a singleton `client` and a `loginDiscord(): Promise<void>` function
-- [ ] **6.2.3** In `src/index.ts`, call `loginDiscord()` and log when ready: `client.once('ready', () => log('Bot online: ' + client.user?.tag))`
+- [x] **6.2.1** Create `src/discord/client.ts` — initializes a `Client` with intents: `Guilds`, `GuildMessages`, `MessageContent`
+- [x] **6.2.2** Export a singleton `client` and a `loginDiscord(): Promise<void>` function
+- [x] **6.2.3** In `src/index.ts`, call `loginDiscord()` and log when ready: `client.once('ready', () => log('Bot online: ' + client.user?.tag))`
 - [ ] **6.2.4** Run `npm run dev` — confirm `Bot online: GhostCraft#XXXX` prints in the terminal. The bot should show as online in your Discord server.
 
 ### 6.3 Register slash commands with Discord
