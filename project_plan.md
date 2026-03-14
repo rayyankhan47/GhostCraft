@@ -614,13 +614,13 @@ Botpress is the Commander's brain. Instead of calling an LLM API directly, you s
 - [ ] **9.4.2** Wire in `src/index.ts` under `commandName === 'auto'`
 
 ### 9.5 Build the remaining slash command handlers
-- [ ] **9.5.1** Create `src/commands/spawnCommand.ts`:
+- [x] **9.5.1** Create `src/commands/spawnCommand.ts`:
   - Defer reply → validate role → call `spawnAgent` → reply `"{emoji} {Name} deployed! Check the thread."`
-- [ ] **9.5.2** Create `src/commands/statusCommand.ts`:
+- [x] **9.5.2** Create `src/commands/statusCommand.ts`:
   - Get all agents from registry → build a status summary embed listing each agent's name, task, and progress → reply
-- [ ] **9.5.3** Create `src/commands/dismissCommand.ts`:
+- [x] **9.5.3** Create `src/commands/dismissCommand.ts`:
   - Find agent by matching the option string against agent names → call `dismissAgent` → reply confirming
-- [ ] **9.5.4** Wire all three in `src/index.ts`
+- [x] **9.5.4** Wire all three in `src/index.ts`
 
 ---
 
