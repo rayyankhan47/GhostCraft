@@ -11,7 +11,7 @@ export const client = new Client({
 });
 
 export async function loginDiscord(): Promise<void> {
-  client.once('ready', () => {
+  client.once('clientReady', () => {
     log(`Bot online: ${client.user?.tag}`);
   });
   await client.login(env.DISCORD_BOT_TOKEN);
