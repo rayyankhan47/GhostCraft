@@ -15,7 +15,7 @@ export async function createBot(username: string): Promise<Bot> {
       host: env.MC_SERVER_HOST,
       port: env.MC_SERVER_PORT,
       username,
-      version: '1.20.1',
+      version: '1.21.1',
       auth: 'offline',
     });
 
